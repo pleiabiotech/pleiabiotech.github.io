@@ -253,7 +253,7 @@
       <h2>Reserve your spot</h2>
       <p class="note">Small groups. Intentional experiences. Tell us who you are — we confirm every application personally and send payment details by email.</p>
     </div>
-    <form action="https://formsubmit.co/dariaprostova@gmail.com" method="POST">
+    <form id="applyForm" action="https://formsubmit.co/dariaprostova@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="PLEIA · New application">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="_honey" style="display:none">
@@ -287,6 +287,25 @@
   const nav=document.getElementById('nav');
   addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
   document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+
+  // Telegram notification on application submit
+  const TG_TOKEN='8963087307:AAHPmemFvbnVGJerqGrhzTOAYfBWXBgchO0';
+  const TG_CHATS=[1403023]; // Dasha; Katya's id will be added after she presses Start
+  document.getElementById('applyForm').addEventListener('submit',function(){
+    const f=this;
+    const text=['🌟 new application — pleia',
+      'name: '+f.name.value,
+      'email: '+f.email.value,
+      'phone: '+(f.phone.value||'—'),
+      'experience: '+f.event.value,
+      'message: '+(f.message.value||'—')].join('\n');
+    TG_CHATS.forEach(id=>{
+      fetch('https://api.telegram.org/bot'+TG_TOKEN+'/sendMessage',{
+        method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+        body:JSON.stringify({chat_id:id,text:text})
+      }).catch(()=>{});
+    });
+  });
 </script>
 </body>
 </html>
