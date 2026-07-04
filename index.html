@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>pleia · biohacking &amp; meditation experiences · lisbon</title>
+<meta name="description" content="PLEIA — where science meets the sacred. Sunset biohacking and meditation experiences on Lisbon's rooftops. Red light therapy, breathwork, stillness.">
+<meta property="og:title" content="pleia · biotech">
+<meta property="og:description" content="Science is sacred. Nature is the lab. Sunset experiences in Lisbon.">
+<meta property="og:image" content="hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#211d17;
+    --ink-soft:#2b261e;
+    --cream:#ece5d8;
+    --cream-soft:#e4dccb;
+    --gold:#c3a878;
+    --gold-dim:#9d8759;
+    --sans:'Jost',sans-serif;
+    --serif:'Cormorant Garamond',serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.6;font-weight:300}
+  h1,h2,h3{font-family:var(--serif);font-weight:400}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .label{font-family:var(--sans);font-size:12px;letter-spacing:.28em;text-transform:lowercase;font-weight:400}
+  .container{max-width:1150px;margin:0 auto;padding:0 24px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;transition:background .4s, box-shadow .4s}
+  nav.scrolled{background:rgba(33,29,23,.92);backdrop-filter:blur(8px)}
+  nav .logo{font-family:var(--serif);font-size:22px;letter-spacing:.34em;color:var(--cream);text-decoration:none;text-transform:lowercase}
+  nav .links{display:flex;gap:28px}
+  nav .links a{color:var(--cream);text-decoration:none;font-size:12px;letter-spacing:.22em;text-transform:lowercase;opacity:.85}
+  nav .links a:hover{opacity:1;color:var(--gold)}
+  .burger{display:none;background:none;border:none;color:var(--cream);font-size:24px;cursor:pointer}
+  @media(max-width:760px){
+    nav .links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(33,29,23,.97);flex-direction:column;padding:24px 32px;gap:18px}
+    nav .links.open{display:flex}
+    .burger{display:block}
+  }
+
+  /* HERO */
+  .hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:url('hero.jpg') center 66%/cover no-repeat}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(23,20,15,.82) 0%,rgba(23,20,15,.12) 48%,rgba(23,20,15,.30) 100%)}
+  @media(max-width:700px){.hero::before{background-position:55% 60%}}
+  .hero .inner{position:relative;z-index:2;width:100%;padding:0 32px 9vh}
+  .hero .stars{display:block;margin-bottom:20px}
+  .hero h1{font-size:clamp(52px,9vw,110px);letter-spacing:.3em;line-height:1;margin-bottom:14px;text-transform:lowercase}
+  .hero p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,30px);opacity:.92;margin-bottom:34px}
+  .btn{display:inline-block;font-family:var(--sans);font-size:12px;letter-spacing:.26em;text-transform:lowercase;text-decoration:none;padding:15px 38px;border:1px solid var(--cream);color:var(--cream);background:transparent;transition:.3s;cursor:pointer}
+  .btn:hover{background:var(--cream);color:var(--ink)}
+  .btn.ink{border-color:var(--ink);color:var(--ink);background:transparent}
+  .btn.ink:hover{background:var(--ink);color:var(--cream)}
+  .btn.solid{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+  .btn.solid:hover{background:var(--cream);border-color:var(--cream)}
+
+  section{padding:110px 0}
+  .section-label{color:var(--gold-dim);margin-bottom:22px}
+  .dark{background:var(--ink);color:var(--cream)}
+  .dark .section-label{color:var(--gold)}
+
+  /* LEGEND */
+  .legend{background:radial-gradient(ellipse 90% 70% at 70% 10%, #2b261e 0%, var(--ink) 60%)}
+  .legend h2{font-size:clamp(38px,5.4vw,72px);font-style:italic;line-height:1.28;max-width:900px;margin-bottom:38px}
+  .legend h2 em{color:var(--gold);font-style:italic}
+  .legend p{max-width:620px;font-family:var(--serif);font-size:22px;font-style:italic;opacity:.9;margin-bottom:18px;line-height:1.55}
+  .constellation{margin-bottom:40px}
+
+  /* WHAT WE DO */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:56px}
+  .pillars .num{font-family:var(--serif);font-size:15px;color:var(--gold-dim)}
+  .pillars h3{font-size:30px;font-style:italic;margin:6px 0 10px}
+  .pillars p{font-size:15px;opacity:.8}
+  @media(max-width:860px){.pillars{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.pillars{grid-template-columns:1fr}}
+
+  /* EXPERIENCE GALLERY */
+  .exp-intro{max-width:680px;margin-bottom:26px;font-size:17px}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
+  .gallery img{width:100%;height:440px;object-fit:cover}
+  .gallery .wide{grid-column:span 2}
+  @media(max-width:760px){
+    .gallery{grid-template-columns:1fr 1fr}
+    .gallery .wide{grid-column:span 2}
+    .gallery img{height:280px}
+  }
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:60px}
+  .steps h3{font-size:26px;font-style:italic;margin-bottom:8px}
+  .steps p{font-size:15px;opacity:.85}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+
+  /* FILM */
+  .film{ text-align:center}
+  .film h2{font-size:clamp(30px,4vw,48px);font-style:italic;margin-bottom:40px}
+  .video-wrap{position:relative;max-width:430px;margin:0 auto;background:#000}
+  .video-wrap video{width:100%;display:block;aspect-ratio:9/16;object-fit:cover}
+
+  /* UPCOMING */
+  .events{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:50px}
+  .event-card{border:1px solid rgba(236,229,216,.25);padding:44px 40px;display:flex;flex-direction:column;gap:6px;position:relative}
+  .event-card .date{font-family:var(--serif);font-size:64px;line-height:1}
+  .event-card .month{letter-spacing:.3em;text-transform:lowercase;font-size:13px;color:var(--gold);margin-bottom:14px}
+  .event-card .meta{font-size:14px;opacity:.85;margin-bottom:22px}
+  .event-card.tba{justify-content:center;align-items:flex-start;opacity:.75}
+  @media(max-width:700px){.events{grid-template-columns:1fr}}
+
+  /* APPLY */
+  .apply .grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  @media(max-width:860px){.apply .grid{grid-template-columns:1fr}}
+  .apply h2{font-size:clamp(32px,4vw,50px);font-style:italic;margin-bottom:18px}
+  .apply .note{font-size:15px;opacity:.8;max-width:420px}
+  form .field{margin-bottom:22px}
+  form label{display:block;font-size:12px;letter-spacing:.22em;text-transform:lowercase;margin-bottom:8px;color:var(--gold-dim)}
+  form input,form select,form textarea{width:100%;background:transparent;border:none;border-bottom:1px solid rgba(33,29,23,.35);padding:10px 2px;font-family:var(--sans);font-size:16px;color:var(--ink);border-radius:0;-webkit-appearance:none}
+  form input:focus,form select:focus,form textarea:focus{outline:none;border-bottom-color:var(--gold-dim)}
+  form textarea{resize:vertical;min-height:70px}
+
+  footer{background:var(--ink);color:var(--cream);padding:60px 0;text-align:center}
+  footer .logo{font-family:var(--serif);font-size:26px;letter-spacing:.34em;margin-bottom:10px;text-transform:lowercase}
+  footer p{font-size:13px;opacity:.6;letter-spacing:.08em}
+  footer a{color:var(--gold);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="logo" href="#top">PLEIA</a>
+  <button class="burger" onclick="document.getElementById('navlinks').classList.toggle('open')">☰</button>
+  <div class="links" id="navlinks">
+    <a href="#legend">The Legend</a>
+    <a href="#experience">The Experience</a>
+    <a href="#film">Film</a>
+    <a href="#upcoming">Upcoming</a>
+    <a href="#private">Private</a>
+    <a href="#apply">Apply</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="inner">
+    <svg class="stars" width="110" height="60" viewBox="0 0 120 70" fill="none" aria-hidden="true">
+      <circle cx="12" cy="50" r="3" fill="#c3a878"/><circle cx="34" cy="28" r="2.4" fill="#ece5d8"/>
+      <circle cx="55" cy="42" r="3.4" fill="#c3a878"/><circle cx="70" cy="14" r="2" fill="#ece5d8"/>
+      <circle cx="88" cy="30" r="2.8" fill="#ece5d8"/><circle cx="104" cy="18" r="2.2" fill="#c3a878"/>
+      <circle cx="98" cy="52" r="2" fill="#ece5d8"/>
+    </svg>
+    <h1>PLEIA</h1>
+    <p>Science is sacred. Nature is the lab.</p>
+    <a class="btn" href="#apply">Reserve your spot</a>
+  </div>
+</header>
+
+<section class="dark legend" id="legend">
+  <div class="container">
+    <div class="label section-label">The Legend</div>
+    <svg class="constellation" width="170" height="99" viewBox="0 0 120 70" fill="none">
+      <circle cx="12" cy="50" r="3" fill="#c3a878"/><circle cx="34" cy="28" r="2.4" fill="#ece5d8"/>
+      <circle cx="55" cy="42" r="3.4" fill="#c3a878"/><circle cx="70" cy="14" r="2" fill="#ece5d8"/>
+      <circle cx="88" cy="30" r="2.8" fill="#ece5d8"/><circle cx="104" cy="18" r="2.2" fill="#c3a878"/>
+      <circle cx="98" cy="52" r="2" fill="#ece5d8"/>
+    </svg>
+    <h2>Named after the Pleiades — seven sisters who became <em>stars</em>.</h2>
+    <p>In the old stories, the seven sisters rose from the earth into the night sky — a reminder that transformation is written into our nature. PLEIA carries that legend into the present: gatherings under the open sky, where ancient practice meets modern science.</p>
+    <p>The body never forgets. You just stopped listening.</p>
+
+    <div class="pillars">
+      <div><div class="num">01</div><h3>Biohacking</h3><p>Red light therapy, cold, breath — tools that speak the body's language.</p></div>
+      <div><div class="num">02</div><h3>Meditation</h3><p>Guided stillness at sunset, above the noise of the city.</p></div>
+      <div><div class="num">03</div><h3>Immersion</h3><p>One ritual, fully lived. No phones, no schedule, no performance.</p></div>
+      <div><div class="num">04</div><h3>Community</h3><p>Small circles of people choosing how they show up in life.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="label section-label">The Experience</div>
+    <h2 style="font-size:clamp(32px,4.4vw,54px);font-style:italic;max-width:760px;margin-bottom:26px">One evening like this changes your day. Many — change your life.</h2>
+    <p class="exp-intro">A rooftop above the Tagus. As the sun sets behind the bridge, we move through breathwork, guided meditation and red light therapy — closing the day the way it was meant to be closed. Small groups. Intentional pace. Everything provided.</p>
+    <a class="btn ink" href="#apply">Apply for the next experience</a>
+
+    <div class="gallery">
+      <img class="wide" src="DSC05527.jpg" alt="Guests stretching at sunset by the 25 de Abril bridge">
+      <img src="DSC05491.jpg" alt="Red light therapy equipment ready on the mat">
+      <img src="DSC05498.jpg" alt="Everything prepared before the session">
+      <img src="DSC05516.jpg" alt="Meditation facing the river at sunset">
+      <img src="DSC05582.jpg" alt="Red light ritual after dark">
+    </div>
+
+    <div class="steps">
+      <div><h3>Arrive &amp; land</h3><p>We meet on the rooftop before sunset. Mats, blankets and equipment are ready — you only bring yourself.</p></div>
+      <div><h3>The ritual</h3><p>Breathwork to arrive, guided meditation as the light fades, red light therapy under the first stars.</p></div>
+      <div><h3>The circle</h3><p>Tea, conversation, silence if you prefer. You leave slower, clearer, warmer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark film" id="film">
+  <div class="container">
+    <div class="label section-label">The Film</div>
+    <h2>What an evening with PLEIA feels like</h2>
+    <div class="video-wrap">
+      <video controls preload="metadata" poster="DSC05555.jpg" src="pleia_film.mp4"></video>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="upcoming" style="padding-top:0">
+  <div class="container">
+    <div class="label section-label">Upcoming</div>
+    <h2 style="font-size:clamp(32px,4vw,48px);font-style:italic">Next experiences</h2>
+    <div class="events">
+      <div class="event-card">
+        <div class="date">7</div>
+        <div class="month">July · Tuesday</div>
+        <div class="meta">20:30 · MAAT Rooftop · Lisbon<br>Sunset ritual · red light therapy · breathwork<br>€75 · limited spots</div>
+        <a class="btn solid" href="#apply" style="align-self:flex-start">Apply</a>
+      </div>
+      <div class="event-card tba">
+        <div class="month">July · Date TBA</div>
+        <div class="meta">The next gathering is being written in the stars.<br>Apply to be the first to know.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="private">
+  <div class="container">
+    <div class="label section-label">Private Experiences</div>
+    <h2 style="font-size:clamp(32px,4.4vw,54px);font-style:italic;max-width:760px;margin-bottom:26px">Your evening. Your circle. Your ritual.</h2>
+    <p class="exp-intro">Beyond our open sessions, we create private experiences — designed around you, your people or your team. Any date, tailored pace, full privacy.</p>
+    <div class="pillars" style="margin-top:46px">
+      <div><div class="num">01</div><h3>Individual</h3><p>A one-to-one session built entirely around your body and your intention.</p></div>
+      <div><div class="num">02</div><h3>For two</h3><p>A romantic sunset ritual for you and your person — slow, quiet, unforgettable.</p></div>
+      <div><div class="num">03</div><h3>For friends</h3><p>Your own circle on the rooftop: breathwork, red light and conversation that matters.</p></div>
+      <div><div class="num">04</div><h3>For teams</h3><p>A corporate experience that actually restores people — offsites, rewards, leadership retreats.</p></div>
+    </div>
+    <a class="btn ink" href="#apply" style="margin-top:50px;display:inline-block">Request a private experience</a>
+  </div>
+</section>
+
+<section class="apply" id="apply" style="padding-top:0">
+  <div class="container grid">
+    <div>
+      <div class="label section-label">Apply</div>
+      <h2>Reserve your spot</h2>
+      <p class="note">Small groups. Intentional experiences. Tell us who you are — we confirm every application personally and send payment details by email.</p>
+    </div>
+    <form action="https://formsubmit.co/dariaprostova@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="PLEIA · New application">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">
+      <div class="field"><label for="name">Name</label><input id="name" name="name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required></div>
+      <div class="field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone"></div>
+      <div class="field"><label for="event">Experience</label>
+        <select id="event" name="event">
+          <option>July 7 · MAAT Rooftop · 20:30</option>
+          <option>Private · individual</option>
+          <option>Private · for two</option>
+          <option>Private · group of friends</option>
+          <option>Corporate · for teams</option>
+          <option>Future dates — keep me posted</option>
+        </select>
+      </div>
+      <div class="field"><label for="message">Anything we should know?</label><textarea id="message" name="message"></textarea></div>
+      <button class="btn ink" type="submit">Send application</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">pleia</div>
+  <p>biotech · lisbon</p>
+  <p style="margin-top:12px"><a href="https://instagram.com/pleia.biohack" target="_blank" rel="noopener">@pleia.biohack</a></p>
+  <p style="margin-top:18px">© 2026 PLEIA. Science is sacred. Nature is the lab.</p>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+  document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));
+</script>
+</body>
+</html>
