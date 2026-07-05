@@ -1,4 +1,4 @@
-# PLEIA site deploy
+# PLEIA site
 
 Static site with Telegram booking links.
 
@@ -6,7 +6,7 @@ Static site with Telegram booking links.
 
 Primary CTAs open the PLEIA Telegram bot:
 
-- Event booking: `https://t.me/pleia_applications_bot?start=july7`
+- Event booking: `https://t.me/pleia_applications_bot?start=july9`
 - Private request: `https://t.me/pleia_applications_bot?start=private`
 - Corporate request: `https://t.me/pleia_applications_bot?start=corporate`
 
