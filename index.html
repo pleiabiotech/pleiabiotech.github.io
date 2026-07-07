@@ -118,12 +118,14 @@
   .film .instagram-link{margin-top:26px}
 
   /* UPCOMING */
-  .events{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:50px}
+  .events{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:50px}
   .event-card{border:1px solid rgba(236,229,216,.25);padding:44px 40px;display:flex;flex-direction:column;gap:6px;position:relative}
   .event-card .date{font-family:var(--serif);font-size:64px;line-height:1}
   .event-card .month{letter-spacing:.18em;text-transform:lowercase;font-size:15px;color:var(--gold);margin-bottom:16px}
+  .event-card .place{letter-spacing:.12em;text-transform:lowercase;font-size:13px;color:var(--cream);opacity:.74;margin-bottom:16px}
   .event-card .meta{font-size:16px;line-height:1.75;opacity:.9;margin-bottom:26px}
   .event-card.tba{justify-content:center;align-items:flex-start;opacity:.75}
+  @media(max-width:980px){.events{grid-template-columns:1fr 1fr}}
   @media(max-width:700px){.events{grid-template-columns:1fr}}
 
   /* APPLY */
@@ -239,19 +241,22 @@
       <div class="event-card">
         <div class="date">9</div>
         <div class="month">July · Thursday</div>
-        <div class="meta">20:30 · Lisbon<br>Sunset ritual · red light therapy · breathwork<br>payment through Stripe · limited spots</div>
+        <div class="place">Lisbon · MAAT rooftop</div>
+        <div class="meta">20:30<br>Sunset ritual · breathwork meditation · red light therapy<br>5 spots only</div>
         <a class="btn solid" href="https://t.me/pleia_applications_bot?start=july9" target="_blank" rel="noopener" style="align-self:flex-start">Apply</a>
       </div>
       <div class="event-card">
         <div class="date">1</div>
-        <div class="month">August · Barcelona</div>
-        <div class="meta">Booking is open<br>Biohacking · meditation · red light therapy · breathwork<br>5 spots only</div>
+        <div class="month">August · Saturday</div>
+        <div class="place">Barcelona · San Sebastia Beach · near W Hotel</div>
+        <div class="meta">time TBD<br>Sunset ritual · breathwork meditation · red light therapy<br>5 spots only</div>
         <a class="btn solid" href="https://t.me/pleia_applications_bot?start=barcelonaAug1" target="_blank" rel="noopener" style="align-self:flex-start">Apply</a>
       </div>
       <div class="event-card">
         <div class="date">2</div>
-        <div class="month">August · Barcelona</div>
-        <div class="meta">Booking is open<br>Biohacking · meditation · red light therapy · breathwork<br>5 spots only</div>
+        <div class="month">August · Sunday</div>
+        <div class="place">Barcelona · San Sebastia Beach · near W Hotel</div>
+        <div class="meta">time TBD<br>Sunset ritual · breathwork meditation · red light therapy<br>5 spots only</div>
         <a class="btn solid" href="https://t.me/pleia_applications_bot?start=barcelonaAug2" target="_blank" rel="noopener" style="align-self:flex-start">Apply</a>
       </div>
     </div>
